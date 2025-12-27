@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laundry Bang Irul - Modern & Premium Laundry Service</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --accent: #ec4899;
+            --dark: #1e293b;
+            --light: #f1f5f9;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+            background: var(--light);
+        }
+
+        /* Header Modern dengan Glassmorphism */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 3rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            position: relative;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 2px;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::before {
+            width: 80%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section Modern */
+        .hero {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.9), rgba(139, 92, 246, 0.9)),
+                        url('https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=1920&q=80') center/cover fixed;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.3), transparent);
+            border-radius: 50%;
+            top: -200px;
+            right: -200px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.3), transparent);
+            border-radius: 50%;
+            bottom: -150px;
+            left: -150px;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(180deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 900px;
+            padding: 0 2rem;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: fadeInDown 1s ease;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.6rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            animation: fadeInUp 1s ease 0.3s both;
+            opacity: 0.95;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.4s;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Section Styling */
+        section {
+            padding: 7rem 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-tag {
+            color: var(--primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #64748b;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Services Grid Modern */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.25);
+        }
+
+        .service-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .service-card h3 {
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: #64748b;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* Products Section */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s;
+            border: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 2rem;
+        }
+
+        .product-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .product-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        .product-info p {
+            color: #64748b;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        /* Pricing Modern */
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .price-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 30px;
+            text-align: center;
+            transition: all 0.4s;
+            position: relative;
+            border: 2px solid transparent;
+            overflow: hidden;
+        }
+
+        .price-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            z-index: 0;
+            transition: all 0.4s;
+        }
+
+        .price-card:hover::before {
+            height: 100%;
+        }
+
+        .price-card:hover {
+            transform: scale(1.05);
+            border-color: var(--primary);
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
+        }
+
+        .price-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .price-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .price-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: white;
+            font-weight: 700;
+        }
+
+        .price {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin: 1.5rem 0;
+            color: white;
+        }
+
+        .price span {
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+
+        .price-card ul {
+            list-style: none;
+            margin: 2rem 0;
+            padding: 0;
+        }
+
+        .price-card li {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 1.05rem;
+        }
+
+        /* Gallery Modern */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            border-radius: 25px;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.4s;
+            height: 350px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.9), rgba(236, 72, 153, 0.9));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.4s;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item:hover {
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Contact Modern */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 3.5rem;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
+        }
+
+        .contact-info h3 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateX(10px);
+        }
+
+        .contact-item span {
+            margin-right: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .contact-item strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 3.5rem;
+            border-radius: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .contact-form h3 {
+            color: var(--dark);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 1.05rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1.2rem 1.5rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 15px;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.3rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Footer Modern */
+        footer {
+            background: linear-gradient(135deg, #1e293b, #334155);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 5rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+            font-size: 1.05rem;
+        }
+
+        .footer-social {
+            margin-top: 1.5rem;
+            font-size: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            nav {
+                padding: 0 1.5rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .gallery-item {
+                height: 280px;
+            }
+
+            .products-grid, .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">🧺 Laundry Bang Irul</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#layanan">Layanan</a></li>
+                <li><a href="#produk">Produk</a></li>
+                <li><a href="#harga">Harga</a></li>
+                <li><a href="#galeri">Galeri</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Solusi Laundry Premium Anda</h1>
+            <p>Bersih, Wangi, dan Rapi dalam Waktu Singkat ✨</p>
+            <div class="hero-buttons">
+                <a href="https://wa.me/6287764137809?text=Halo%20Laundry%20Bang%20Irul!%20Saya%20ingin%20memesan%20layanan%20laundry" target="_blank" class="btn btn-primary">Pesan Sekarang</a>
+                <a href="#layanan" class="btn btn-secondary">Lihat Layanan</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Layanan -->
+    <section id="layanan">
+        <div class="section-header">
+            <div class="section-tag">OUR SERVICES</div>
+            <h2 class="section-title">Layanan Kami</h2>
+            <p class="section-subtitle">Kami menyediakan berbagai layanan laundry profesional untuk memenuhi kebutuhan Anda</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🧼</div>
+                <h3>Cuci Reguler</h3>
+                <p>Layanan cuci pakaian standar dengan detergen berkualitas premium dan pewangi pilihan terbaik yang membuat pakaian Anda wangi seharian</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>Cuci Express</h3>
+                <p>Butuh pakaian bersih dalam waktu singkat? Layanan kilat kami siap melayani dengan hasil sempurna dalam 3-6 jam saja</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">👔</div>
+                <h3>Cuci + Setrika</h3>
+                <p>Pakaian dicuci bersih dan disetrika dengan teknik profesional, dilipat rapi sempurna dan siap langsung digunakan</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🛏️</div>
+                <h3>Bed Cover & Sprei</h3>
+                <p>Layanan khusus untuk bed cover, sprei, selimut tebal, dan semua jenis kain berukuran besar dengan peralatan industrial</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">👗</div>
+                <h3>Dry Cleaning</h3>
+                <p>Perawatan ekstra khusus untuk pakaian berbahan sensitif, formal, gaun pesta, dan pakaian mewah dengan teknik dry clean profesional</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚚</div>
+                <h3>Antar Jemput Gratis</h3>
+                <p>Tidak perlu repot keluar rumah! Kami menyediakan layanan antar jemput gratis untuk area tertentu di Jakarta</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Produk Laundry -->
+    <section id="produk">
+        <div class="section-header">
+            <div class="section-tag">PRODUCTS</div>
+            <h2 class="section-title">Produk Berkualitas Kami</h2>
+            <p class="section-subtitle">Kami menggunakan produk laundry terbaik untuk hasil maksimal</p>
+        </div>
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?w=600&q=80" class="product-image" alt="Detergen Premium">
+                <div class="product-info">
+                    <span class="product-badge">Premium Quality</span>
+                    <h3>Detergen Premium</h3>
+                    <p>Detergen berkualitas tinggi yang efektif membersihkan noda membandel dan aman untuk semua jenis kain</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1558317374-067fb5f30001?w=600&q=80" class="product-image" alt="Pewangi Pakaian">
+                <div class="product-info">
+                    <span class="product-badge">Fresh Scent</span>
+                    <h3>Pewangi Luxury</h3>
+                    <p>Pewangi pakaian dengan aroma mewah yang tahan lama hingga berhari-hari, membuat pakaian selalu segar</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=600&q=80" class="product-image" alt="Mesin Cuci Industrial">
+                <div class="product-info">
+                    <span class="product-badge">Professional</span>
+                    <h3>Mesin Cuci Industrial</h3>
+                    <p>Mesin cuci berkapasitas besar dengan teknologi terkini untuk hasil cucian yang bersih sempurna</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?w=600&q=80" class="product-image" alt="Pelembut Pakaian">
+                <div class="product-info">
+                    <span class="product-badge">Soft Touch</span>
+                    <h3>Fabric Softener</h3>
+                    <p>Pelembut kain yang membuat pakaian Anda lembut, halus, dan nyaman dipakai sepanjang hari</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1563299796-17596ed6b017?w=600&q=80" class="product-image" alt="Sabun Cuci Khusus">
+                <div class="product-info">
+                    <span class="product-badge">Eco Friendly</span>
+                    <h3>Sabun Eco-Friendly</h3>
+                    <p>Produk ramah lingkungan yang efektif membersihkan tanpa merusak lingkungan dan aman untuk kulit sensitif</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1567721913486-6585f069b332?w=600&q=80" class="product-image" alt="Mesin Pengering">
+                <div class="product-info">
+                    <span class="product-badge">Fast Dry</span>
+                    <h3>Pengering Premium</h3>
+                    <p>Teknologi pengering modern yang mengeringkan pakaian dengan sempurna tanpa merusak serat kain</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Harga -->
+    <section id="harga">
+        <div class="section-header">
+            <div class="section-tag">PRICING</div>
+            <h2 class="section-title">Paket Harga Terjangkau</h2>
+            <p class="section-subtitle">Pilih paket yang sesuai dengan kebutuhan Anda</p>
+        </div>
+        <div class="price-grid">
+            <div class="price-card">
+                <div class="price-icon">💧</div>
+                <h3>Paket Reguler</h3>
+                <div class="price">Rp 5.000<span>/kg</span></div>
+                <ul>
+                    <li>✓ Cuci + Kering Sempurna</li>
+                    <li>✓ Detergen Berkualitas</li>
+                    <li>✓ Pewangi Premium</li>
+                    <li>✓ Selesai 2-3 Hari</li>
+                    <li>✓ Minimal 3kg</li>
+                    <li>✓ Garansi Bersih</li>
+                </ul>
+            </div>
+            <div class="price-card">
+                <div class="price-icon">⚡</div>
+                <h3>Paket Express</h3>
+                <div class="price">Rp 10.000<span>/kg</span></div>
+                <ul>
+                    <li>✓ Cuci + Kering Kilat</li>
+                    <li>✓ Detergen Premium</li>
+                    <li>✓ Pewangi Luxury</li>
+                    <li>✓ Selesai 3-6 Jam</li>
+                    <li>✓ Minimal 2kg</li>
+                    <li>✓ Priority Service</li>
+                </ul>
+            </div>
+            <div class="price-card">
+                <div class="price-icon">👔</div>
+                <h3>Cuci + Setrika</h3>
+                <div class="price">Rp 8.000<span>/kg</span></div>
+                <ul>
+                    <li>✓ Cuci + Kering + Setrika</li>
+                    <li>✓ Lipat Rapi Sempurna</li>
+                    <li>✓ Pewangi Pilihan</li>
+                    <li>✓ Selesai 2-3 Hari</li>
+                    <li>✓ Minimal 3kg</li>
+                    <li>✓ Finishing Premium</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeri -->
+    <section id="galeri">
+        <div class="section-header">
+            <div class="section-tag">GALLERY</div>
+            <h2 class="section-title">Galeri Laundry Kami</h2>
+            <p class="section-subtitle">Lihat fasilitas dan hasil kerja profesional kami</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=800&q=80" alt="Mesin Cuci Industrial Modern">
+                <div class="gallery-overlay">Mesin Cuci Premium</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?w=800&q=80" alt="Pakaian Terlipat Rapi">
+                <div class="gallery-overlay">Hasil Lipatan Sempurna</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?w=800&q=80" alt="Interior Laundry Modern">
+                <div class="gallery-overlay">Fasilitas Modern</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?w=800&q=80" alt="Pakaian Bersih Wangi">
+                <div class="gallery-overlay">Pakaian Bersih & Wangi</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1545173168-9f1947eebb7f?w=800&q=80" alt="Ruang Laundry Profesional">
+                <div class="gallery-overlay">Ruang Kerja Bersih</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1567721913486-6585f069b332?w=800&q=80" alt="Mesin Cuci Kapasitas Besar">
+                <div class="gallery-overlay">Teknologi Terkini</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak -->
+    <section id="kontak">
+        <div class="section-header">
+            <div class="section-tag">CONTACT US</div>
+            <h2 class="section-title">Hubungi Kami</h2>
+            <p class="section-subtitle">Siap melayani kebutuhan laundry Anda 24/7</p>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>📞 Informasi Kontak</h3>
+                <div class="contact-item">
+                    <span>📍</span>
+                    <div>
+                        <strong>Alamat</strong>
+                        Jl. Raya Laundry No. 123<br>
+                        Jakarta Selatan 12345
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span>📞</span>
+                    <div>
+                        <strong>Telepon / WhatsApp</strong>
+                        <a href="https://wa.me/6287764137809" target="_blank" style="color: white; text-decoration: none;">
+                            0877-6413-7809
+                        </a><br>
+                        (24 Jam Online)
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span>📧</span>
+                    <div>
+                        <strong>Email</strong>
+                        info@laundrybangirul.com
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span>🕐</span>
+                    <div>
+                        <strong>Jam Operasional</strong>
+                        Senin - Minggu<br>
+                        07.00 - 21.00 WIB
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h3>💬 Kirim Pesan</h3>
+                <form onsubmit="return handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="nama">Nama Lengkap</label>
+                        <input type="text" id="nama" placeholder="Masukkan nama Anda" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="contoh@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telepon">Nomor Telepon</label>
+                        <input type="tel" id="telepon" placeholder="+62 812-xxxx-xxxx" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pesan">Pesan / Pertanyaan</label>
+                        <textarea id="pesan" rows="4" placeholder="Tulis pesan Anda di sini..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">📨 Kirim Pesan</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>&copy; 2024 Laundry Bang Irul</strong></p>
+        <p>🧺 Layanan Laundry Profesional & Terpercaya</p>
+        <p>Bersih, Wangi, dan Rapi - Kepuasan Anda Prioritas Kami!</p>
+        <div class="footer-social">
+            📱 💬 📧
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission - Redirect to WhatsApp
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const nama = document.getElementById('nama').value;
+            const email = document.getElementById('email').value;
+            const telepon = document.getElementById('telepon').value;
+            const pesan = document.getElementById('pesan').value;
+            
+            // Format pesan untuk WhatsApp
+            const pesanWA = `Halo Laundry Bang Irul!%0A%0A` +
+                           `Nama: ${nama}%0A` +
+                           `Email: ${email}%0A` +
+                           `Telepon: ${telepon}%0A%0A` +
+                           `Pesan:%0A${pesan}`;
+            
+            // Nomor WhatsApp tujuan (format internasional tanpa +)
+            const nomorWA = '6287764137809';
+            
+            // Redirect ke WhatsApp
+            window.open(`https://wa.me/${nomorWA}?text=${pesanWA}`, '_blank');
+            
+            // Reset form setelah kirim
+            event.target.reset();
+            
+            return false;
+        }
+
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.service-card, .product-card, .price-card, .gallery-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s ease';
+            observer.observe(el);
+        });
+
+        // Active nav on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.style.color = 'var(--dark)';
+                if (link.getAttribute('href') === '#' + current) {
+                    link.style.color = 'var(--primary)';
+                }
+            });
+        });
+
+        // Parallax effect for hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
+                    <li>
